@@ -86,18 +86,18 @@
       if( this.itemsCount > 1 ) {
 
         // add navigation arrows (the previous arrow is not shown initially):
-        this.$navPrev = $( '<span class="cbp-fwprev fa fa-chevron-left"></span>' ).hide();
-        this.$navNext = $( '<span class="cbp-fwnext fa fa-chevron-right"></span>' );
+        this.$navPrev = $( '<span class="slider-prev icon-arrow-left"></span>' ).hide();
+        this.$navNext = $( '<span class="slider-next icon-arrow-right"></span>' );
         $( '<nav/>' ).append( this.$navPrev, this.$navNext ).appendTo( this.$el );
         // add navigation dots
-        var dots = '';
-        for( var i = 0; i < this.itemsCount; ++i ) {
-          // current dot will have the class cbp-fwcurrent
-          var dot = i === this.current ? '<span class="cbp-fwcurrent">' + (i + 1) +'</span>' : '<span>' + (i + 1) +'</span>';
-          dots += dot;
-        }
-        var navDots = $( '<div class="cbp-fwdots"/>' ).append( dots ).appendTo( this.$el );
-        this.$navDots = navDots.children( 'span' );
+        // var dots = '';
+        // for( var i = 0; i < this.itemsCount; ++i ) {
+        //   // current dot will have the class slider-current
+        //   var dot = i === this.current ? '<span class="slider-current">' + (i + 1) +'</span>' : '<span>' + (i + 1) +'</span>';
+        //   dots += dot;
+        // }
+        // var navDots = $( '<div class="slider-nav-item"/>' ).append( dots ).appendTo( this.$el );
+        this.$navDots = $('.slider-nav-item').children( 'span' );
 
       }
 
@@ -167,7 +167,7 @@
         default : this.$navNext.show(); this.$navPrev.show(); break;
       }
       // highlight navigation dot
-      this.$navDots.eq( this.old ).removeClass( 'cbp-fwcurrent' ).end().eq( this.current ).addClass( 'cbp-fwcurrent' );
+      this.$navDots.eq( this.old ).removeClass( 'slider-current' ).end().eq( this.current ).addClass( 'slider-current' );
 
     },
     _jump : function( position ) {

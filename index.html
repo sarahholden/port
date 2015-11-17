@@ -11,30 +11,29 @@
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <script src="https://use.typekit.net/qwn2pvu.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
 </head>
 <body>
-  <!--[if lt IE 8]>
+<!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+<![endif]-->
 
   <header class="page-header">
     <div class="text-wrapper">
       <h1>Sarah Holden</h1>
       <h2>Web Developer/Web Designer</h2>
-      <p>Hi! I'm Sarah. I <a href="#build">build</a>, I <a href="#teach">teach</a>, and I make a mean batch of <a href="#build">Chocolate Chip Cookies</a>. Want to work together? <a href="#contact">Get in touch.</a></p>
+      <p>Hi! I'm Sarah. I <a href="#build">build</a>, I <a href="#teach">teach</a>, and I make a mean batch of <a href="http://neatandsweetrecipes.com/">Chocolate Chip Cookies</a>. Want to work together? <a href="#contact">Get in touch.</a></p>
     </div>
 
   </header>
-  <div class="nav-wrapper">
+<!--   <div class="nav-wrapper">
     <nav>
       <ul>
         <li><a href="#build">Build</a></li>
@@ -42,46 +41,127 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-  </div>
+  </div> -->
   <main>
+    <section id="about">
+      <header>
+        <h1>About</h1>   
+      </header>
+    </section>
     <section id="build">
-      <h1>Build</h1>
+      <header>
+        <h1>Build</h1>
+        <h2>Bringing projects to life</h2>
+      </header>
+      
+<!--       <div class="col-md-2">
+        <div class="slider-nav-item">
+          <span class="slider-current">KinHR</span>
+          <span>Neat &amp; Sweet</span>
+          <span>SPI</span>
+          <span>Luceris</span>
+        </div>
+      </div> -->
 
+      <div class="col-md-12">
+        <div id="slider" class="slider">
+          <ul>
+            <li>
+              <a href="#">
+                <img src="img/kin.jpg" alt="KinHR Website"/>
+                <div class="info">
+                  <h3>KinHR</h3>
+                  <p>Lead Front-End Developer</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="img/luceris.png" alt="Luceris Website"/>
+                <div class="info">
+                  <h3>Luceris</h3>
+                  <p>Lead Front-End Developer</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="img/spi.jpg" alt="Society for Psychoanalytic Inquiry Website"/>
+                <div class="info">
+                  <h3>SPI</h3>
+                  <p>Development</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="img/neatandsweet.jpg" alt="Neat and Sweet Recipes Website"/>
+                <div class="info">
+                  <h3>Neat &amp; Sweet Recipes</h3>
+                  <p>Design/Development</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="img/colorconverter.jpg" alt="SASS Color Converter"/>
+                <div class="info">
+                  <h3>SASS Color Converter</h3>
+                  <p>Design/Development</p>
+                </div>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="teach">
-      <h1>Teach</h1>
-      <div id="cbp-fwslider" class="cbp-fwslider">
-        <ul>
-          <li><a href="#"><img src="img/image_1.jpg" alt="img01"/></a></li>
-          <li><a href="#"><img src="img/image_2.jpg" alt="img02"/></a></li>
-          <li><a href="#"><img src="img/image_3.jpg" alt="img03"/></a></li>
-        </ul>
-      </div>
-
+      <header>
+        <h1>Teach</h1>
+        <h2>Breaking down concepts</h2> 
+      </header>
+      <ul class="tutorial-wrapper">
+        <li>
+          <a href="https://www.youtube.com/watch?v=6m6iqN1uynE">
+            <img src="img/hamburger_menu_tutorial.jpg" alt="Hamburger Menu Tutorial"/>
+            <div class="info">
+              <h3>Interactive Hamburger Menu Tutorial</h3>
+              <button>Watch</button>
+            </div>
+          </a>
+        </li>
+      </ul>
     </section>
 
 
-    <section id="contact" class="clearfix">
+    <section id="contact">
       <header>
         <h1>CONTACT</h1>
         <h2>I'D LOVE TO HEAR FROM YOU!</h2>
+        <p>Have a project you'd like to work on together? I'm currently available for freelance work and am always excited to take on fun, creative, and challenging new projects. Have a project you'd like to work on together? I'm currently available for freelance work and am always excited to take on fun, creative, and challenging new projects.</p>
       </header>
 
-      <div class="col-md-6">
-        <p>Have a project you'd like to work on together? I'm currently available for freelance work and am always excited to take on fun, creative, and challenging new projects.</p>
-      </div>
-      <div class="col-md-6">
-        <form action="">
+      <form action="" class="clearfix">
+        <div class="col-md-6">
+
           <label for="name">Name *</label>
-          <input type="text" id="name">
+          <input type="text" id="name" name="fullName">
           <label for="email">Email *</label>
-          <input type="email" id="email">
-          <label for="message">Message</label>
-          <textarea id="message"></textarea>
+          <input type="email" id="email" name="email">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject">
+
+        </div>
+        <div class="col-md-6">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <div class="col-md-12">
           <button type="submit">Submit</button>
-        </form>
-      </div>
+        </div>
+      </form>
     </section>
   </main>
 
@@ -91,10 +171,10 @@
 
 
 
-<!--   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+  <!--   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
-    <script src="js/slider.js"></script>
+  <script src="js/slider.js"></script>
   <script src="js/main.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -1,3 +1,3 @@
 $( function() {
-  $( '#cbp-fwslider' ).cbpFWSlider();
+  $( '#slider' ).cbpFWSlider();
 } );

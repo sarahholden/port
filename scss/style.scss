@@ -1,0 +1,333 @@
+@import 'fonts.scss';
+@import 'variables.scss';
+
+
+/* ==========================================================================
+FIXES
+========================================================================== */
+
+/* Prevent FOUC for Typekit fonts */
+.wf-loading {
+  font-family: "droid-sans";
+  visibility: hidden;
+}
+.wf-active {
+  visibility: visible;
+}
+
+/* Clearfix */
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+
+
+/* ==========================================================================
+Base Styles
+========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  height: 100%;
+}
+
+body {
+  font-family: $paragraphText;
+  -webkit-font-smoothing: antialiased;
+  color: $primaryText;
+  height: 100%;
+}
+
+main {
+  max-width: 1000px; /*Same for footer p*/
+  margin: 0 auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ==========================================================================
+Type
+========================================================================== */
+h1, h2, h3 {
+  font-family: $smallCaps;
+  font-style: normal;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 3rem;
+  color: $lightBrown;
+  font-weight: 300;
+  letter-spacing: .15em;
+  margin-bottom: .3rem;
+}
+
+h2 {
+  font-size: 0.92857em;
+  color: $orange;
+  letter-spacing: .18em;
+  font-weight: 700;
+}
+
+h3 {
+  letter-spacing: .18em;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+a {
+  color: $orange;
+}
+
+a:hover {
+  color: #AD5036;
+}
+
+/* ==========================================================================
+Form
+========================================================================== */
+
+button {
+  font-family: $smallCaps;
+  font-weight: bold;
+  background-color: $orange;
+  color: #fff;
+  border: none;
+  padding: 0 25px;
+  line-height: 45px;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.357rem;
+  margin-top: 1em;
+}
+
+button[type="submit"] {
+  width: 100%;
+}
+
+button:focus {
+  outline: none;
+}
+
+.info button {
+  background-color: white;
+  color: $lightBrown;
+  border-radius: 4px;
+  line-height: 35px;
+  margin-top: 1.75em;
+}
+
+label {
+  font-family: $smallCaps;
+  font-style: normal;
+  font-weight: 500;
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.85714rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.2em;
+}
+
+textarea,
+input {
+  outline: none;
+  border: 1px solid #A2988A;
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: 1.80rem;
+  transition: all .2s ease-in-out;
+}
+
+textarea:focus,
+input:focus {
+  border-color: darken($borderColor, 10%);
+}
+
+input {
+  height: 35px;
+}
+
+textarea {
+  height: 194px;
+  resize: none;
+}
+
+
+
+
+/* ==========================================================================
+Grid
+========================================================================== */
+section {
+  @extend .clearfix;
+  margin-top: 5.5rem;
+}
+
+section header {
+  margin-bottom: 4rem;
+}
+
+/* ==========================================================================
+Header
+========================================================================== */
+.page-header {
+  height: 100%;
+}
+
+.page-header h1 {
+  font-family: $displayText;
+  text-transform: none;
+  font-size: 8rem;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.page-header h2 {
+  font-size: 1.5rem;
+}
+
+.text-wrapper {
+  top: 50%;
+  position: relative;
+  transform: translateY(-50%);
+}
+
+
+/* ==========================================================================
+Navigation
+========================================================================== */
+nav {
+  background-color: $grey;
+  color: white;
+  font-family: $smallCaps;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+  padding: 1rem 2rem;
+}
+
+nav a {
+  color: white;
+}
+
+/* ==========================================================================
+Footer
+========================================================================== */
+footer {
+  background-color: $grey;
+  color: #fff;
+  padding: 1rem 0;
+  margin-top: 4.5rem;
+}
+
+footer p {
+  max-width: 1000px; /*Same for main*/
+  margin: 0 auto;
+}
+
+
+/* ==========================================================================
+Slider
+========================================================================== */
+.slider,
+.tutorial-wrapper {
+  position: relative;
+  margin: 0 0 10px;
+  overflow: hidden;
+}
+
+.slider li,
+.tutorial-wrapper li {
+  transform: translateZ(0);
+  float: left;
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.tutorial-wrapper li {
+  width: 100%;
+}
+
+.slider img,
+.tutorial-wrapper img {
+  border: none;
+  display: block;
+  margin: 0 auto;
+  max-width: 75%;
+  border: 2px solid #F5F3EF;
+}
+
+.info {
+  background-color: $lightBrown;
+  display: inline-block;
+  transform: translateY(-25%);
+  padding: 25px 40px;
+  width: 35%;
+  color: white;
+  h3 {
+    margin: 0;
+  }
+  p {
+    margin: 10px 0 0;
+  }
+
+}
+
+.slider nav span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  color: $lightBrown;
+  font-size: 40px;
+  text-align: center;
+  margin-top: -50px;
+  line-height: 40px;
+  cursor: pointer;
+  font-weight: normal;
+  transition: color .3s ease-in-out;
+  &:hover {
+    color: darken($lightBrown, 20%);
+  }
+}
+
+.slider-next {
+  right: 0px;
+}
+
+.slider-prev {
+  left: 0px;
+}
+
+.slider-nav-item .slider-current {
+  background: $lightGrey;
+  color: $orange;
+}
