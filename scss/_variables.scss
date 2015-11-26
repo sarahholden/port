@@ -1,20 +1,83 @@
 /* ==========================================================================
   Colors
 ============================================================================= */
-$orange: #C1593D;
-$grey: #A1988B;
-$lightGrey: #F5F3EF;
-$lightBrown: #BEA379;
-$offBlack: #22211D;
-$primaryText: #857A6A;
-$borderColor: #A2988A;
-$lightBorderColor: #ebe7df;
+$calloutBackground: #DBBE9C;
+$darkBackground: #383637;
+$offWhiteBackground: #F4F4F4;
+$whiteBackground: #FFF;
 
+$lightText: #FFF;
+$darkText: #393637;
+$calloutText: #DBBE9C;
+
+$darkBorder: 2px solid $darkText;
+
+
+%darkLink {
+	color: $darkText;
+	&:hover {
+		color: darken($darkText, 10%);
+	}
+}
+
+
+%calloutSection {
+	background-color: $calloutBackground;
+	color: $lightText;
+	h1 {
+		color: white;
+	}
+  a:not(.btn) {
+    color: $lightText;
+    &:hover {
+    	color: $lightText;
+    }
+  }
+  .btn {
+		color: $lightText;
+		background-color: transparent;
+		border: 2px solid $lightText;
+		&:hover {
+			background-color: $whiteBackground;
+			color: $calloutText;
+		}
+  }
+}
+
+%contrastSection {
+	color: $lightText;
+	background-color: $darkBackground;
+}
+
+%clickableContrastSection {
+	color: $lightText;
+	background-color: $darkBackground;
+	&:hover {
+		color: $lightText;
+		background-color: darken($darkBackground, 4%);
+	}
+}
+
+%superLightSection {
+	background-color: $offWhiteBackground;
+}
 
 
 /* ==========================================================================
   Fonts
 ============================================================================= */
-$smallCaps: "futura-pt", sans-serif;
-$paragraphText: "ff-tisa-web-pro",serif;
-$displayText: "lust", serif;
+$pizzazFont: "lust", serif;
+$headerFont: "futura-pt",sans-serif;
+$smallCapsFont: "aktiv-grotesk", sans-serif;
+$paragraphFont: "futura-pt",sans-serif;
+
+%smallCaps {
+  font-family: $smallCapsFont;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .8rem;
+  font-weight: bold;
+}
+/* ==========================================================================
+  Spacing
+============================================================================= */

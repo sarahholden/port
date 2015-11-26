@@ -26,6 +26,12 @@ FIXES
   clear: both;
 }
 
+.v-aligned-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-70%);
+}
+
 
 
 /* ==========================================================================
@@ -36,20 +42,20 @@ Base Styles
 }
 
 html {
-  font-size: 14px;
   height: 100%;
+  font-size: 18px;
 }
 
 body {
-  font-family: $paragraphText;
-  -webkit-font-smoothing: antialiased;
-  color: $primaryText;
   height: 100%;
+  color: $darkText;
+  font-family: $paragraphFont;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
 }
 
-main {
-  max-width: 1000px; /*Same for footer p*/
-  margin: 0 auto;
+li {
+  list-style: none;
 }
 
 ul {
@@ -57,277 +63,244 @@ ul {
   padding: 0;
 }
 
+a {
+  color: $calloutText;
+  transition: all .3s ease-in-out;
+  &:hover {
+    text-decoration: none;
+    color: darken($calloutText, 10%);
+  }
+}
 
-/* ==========================================================================
-Type
-========================================================================== */
-h1, h2, h3 {
-  font-family: $smallCaps;
-  font-style: normal;
-  text-transform: uppercase;
-  text-align: center;
+h1, h2, h3, h4 {
   margin-top: 0;
 }
 
-h1 {
-  font-size: 3rem;
-  color: $lightBrown;
-  font-weight: 300;
-  letter-spacing: .15em;
-  margin-bottom: .3rem;
-}
-
-h2 {
-  font-size: 0.92857em;
-  color: $orange;
-  letter-spacing: .18em;
-  font-weight: 700;
-}
-
-h3 {
-  letter-spacing: .18em;
-}
-
-p {
-  font-weight: 400;
-  font-size: 1rem;
-  text-align: center;
-}
-
-
-a {
-  color: $orange;
-}
-
-a:hover {
-  color: #AD5036;
-}
-
-/* ==========================================================================
-Form
-========================================================================== */
-
-button {
-  font-family: $smallCaps;
-  font-weight: bold;
-  background-color: $orange;
-  color: #fff;
-  border: none;
-  padding: 0 25px;
-  line-height: 45px;
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 0.357rem;
-  margin-top: 1em;
-}
-
-button[type="submit"] {
-  width: 100%;
-}
-
-button:focus {
-  outline: none;
-}
-
-.info button {
-  background-color: white;
-  color: $lightBrown;
-  border-radius: 4px;
-  line-height: 35px;
-  margin-top: 1.75em;
-}
-
-label {
-  font-family: $smallCaps;
-  font-style: normal;
-  font-weight: 500;
-  display: block;
-  text-transform: uppercase;
-  font-size: 0.85714rem;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.2em;
-}
-
-textarea,
-input {
-  outline: none;
-  border: 1px solid #A2988A;
-  background-color: #fff;
-  width: 100%;
-  margin-bottom: 1.80rem;
-  transition: all .2s ease-in-out;
-}
-
-textarea:focus,
-input:focus {
-  border-color: darken($borderColor, 10%);
-}
-
-input {
-  height: 35px;
-}
-
-textarea {
-  height: 194px;
-  resize: none;
-}
-
-
-
-
-/* ==========================================================================
-Grid
-========================================================================== */
-section {
-  @extend .clearfix;
-  margin-top: 5.5rem;
-}
-
-section header {
-  margin-bottom: 4rem;
-}
 
 /* ==========================================================================
 Header
 ========================================================================== */
 .page-header {
   height: 100%;
+  padding: 1rem 5rem;
+  h1 {
+    color: $calloutText;
+    font-family: $pizzazFont;
+    font-size: 10vw;
+    font-weight: normal;
+    margin-bottom: 0;
+  }
+  h2 {
+    @extend %smallCaps;
+    font-weight: normal;
+    font-size: 1rem;
+  }
+  ul {
+    text-align: center;
+  }
+  li {
+    display: inline-block;
+  }
 }
 
-.page-header h1 {
-  font-family: $displayText;
-  text-transform: none;
-  font-size: 8rem;
-  font-weight: 400;
-  letter-spacing: normal;
+/* ==========================================================================
+Nav
+========================================================================== */
+.page-header nav {
+  a {
+    @extend %smallCaps;
+    padding: 1rem 5vw;
+  }
+
+
 }
 
-.page-header h2 {
-  font-size: 1.5rem;
+
+
+/* ==========================================================================
+Base Styles
+========================================================================== */
+img {
+  max-width: 100%;
 }
 
-.text-wrapper {
-  top: 50%;
-  position: relative;
-  transform: translateY(-50%);
+/* ==========================================================================
+Section
+========================================================================== */
+section {
+  text-align: center;
+  padding: 6rem 2rem;
+  header h2 {
+    font-weight: normal;
+    font-size: 2.7rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+
+  }
+  h1 {
+    @extend %smallCaps;
+    color: $calloutText;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+  }
+}
+
+/* ==========================================================================
+About
+========================================================================== */
+.about {
+  @extend %superLightSection;
+  li {
+    border: $darkBorder;
+    border-bottom: none;
+    padding: 1rem;
+    &:last-of-type {
+      border-bottom: 2px solid $darkText;
+    }
+  }
 }
 
 
 /* ==========================================================================
-Navigation
+Build
 ========================================================================== */
-nav {
-  background-color: $grey;
-  color: white;
-  font-family: $smallCaps;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: .15em;
-  text-align: center;
+.build .row:not(:first-of-type) {
+  display: flex;
+  overflow: hidden;
 }
 
-nav li {
+
+.work-item {
+  flex: 1;
+  padding: 0 0 5rem;
+  margin: 0 4rem 1.2rem;
+  position: relative;
+  h3 {
+    @extend %smallCaps;
+  }
+  img {
+    width: 100%;
+    margin: 0 auto 1.5rem;
+  }
+
+  .btn {
+    margin-top: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  p {
+    text-align: justify;
+    margin: 0 auto 1rem;
+  }
+}
+
+#build > .row:nth-of-type(2) .work-item{
+  margin-bottom: 4rem;
+}
+
+/* ==========================================================================
+Teach
+========================================================================== */
+.teach {
+  @extend %calloutSection;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0 1rem;
+  text-align: justify;
+  footer {
+    @extend %smallCaps;
+
+  }
+}
+
+
+/* ==========================================================================
+Closing Section
+========================================================================== */
+.closing-section {
+  @extend %superLightSection;
+  img {
+    width: 15%;
+    margin-bottom: 1rem;
+  }
+  // h2 {
+  //   font-family: $pizzazFont;
+  //   font-weight: normal;
+  //   font-size: 5vw;
+  //   width: 40%;
+  //   line-height: 1.2;
+  //   margin: 0 auto 2rem;
+  // }
+  a {
+    @extend %darkLink;
+    font-size: 1.6rem;
+    padding: 0 .4rem;
+  }
+}
+
+
+
+
+/* ==========================================================================
+Forms
+========================================================================== */
+input,
+textarea {
+  @extend %smallCaps;
+  display: block;
+  width: 100%;
+  border: $darkBorder;
+  padding: 1.5rem 2rem;
+  &:focus {
+    outline: none;
+  }
+}
+
+input:not(:last-of-type) {
+  margin-bottom: 1.8rem;
+}
+
+textarea {
+  height: 293px;
+}
+
+button,
+.btn {
+  @extend %smallCaps;
+  @extend %clickableContrastSection;
+  border: none;
+  outline: none;
+  padding: 1.473rem 3rem;
+  transition: all .3s ease-in-out;
   display: inline-block;
-  padding: 1rem 2rem;
+  margin-top: 3.5rem;
+  i {
+    display: inline-block;
+    padding-left: 7px;
+    font-size: .6rem;
+    top: -.05rem;
+    position: relative;
+  }
+  &:focus {
+    text-decoration: none;
+  }
 }
 
-nav a {
-  color: white;
-}
 
 /* ==========================================================================
 Footer
 ========================================================================== */
-footer {
-  background-color: $grey;
-  color: #fff;
-  padding: 1rem 0;
-  margin-top: 4.5rem;
-}
-
-footer p {
-  max-width: 1000px; /*Same for main*/
-  margin: 0 auto;
-}
-
-
-/* ==========================================================================
-Slider
-========================================================================== */
-.slider,
-.tutorial-wrapper {
-  position: relative;
-  margin: 0 0 10px;
-  overflow: hidden;
-}
-
-.slider li,
-.tutorial-wrapper li {
-  transform: translateZ(0);
-  float: left;
-  display: block;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.tutorial-wrapper li {
-  width: 100%;
-}
-
-.slider img,
-.tutorial-wrapper img {
-  border: none;
-  display: block;
-  margin: 0 auto;
-  max-width: 75%;
-  border: 2px solid #F5F3EF;
-}
-
-.info {
-  background-color: $lightBrown;
-  display: inline-block;
-  transform: translateY(-25%);
-  padding: 25px 40px;
-  width: 35%;
-  color: white;
-  h3 {
+body > footer {
+  @extend %contrastSection;
+  padding: .8rem 2rem;
+  p {
     margin: 0;
   }
-  p {
-    margin: 10px 0 0;
-  }
-
-}
-
-.slider nav span {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  color: $lightBrown;
-  font-size: 40px;
-  text-align: center;
-  margin-top: -50px;
-  line-height: 40px;
-  cursor: pointer;
-  font-weight: normal;
-  transition: color .3s ease-in-out;
-  &:hover {
-    color: darken($lightBrown, 20%);
-  }
-}
-
-.slider-next {
-  right: 0px;
-}
-
-.slider-prev {
-  left: 0px;
-}
-
-.slider-nav-item .slider-current {
-  background: $lightGrey;
-  color: $orange;
 }
