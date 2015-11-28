@@ -20,6 +20,15 @@ $darkBorder: 2px solid $darkText;
 	}
 }
 
+%whiteLink {
+	color: white;
+	&:hover,
+	&:focus,
+	&:active {
+		color: white;
+	}
+}
+
 
 %calloutSection {
 	background-color: $calloutBackground;
@@ -37,9 +46,12 @@ $darkBorder: 2px solid $darkText;
 		color: $lightText;
 		background-color: transparent;
 		border: 2px solid $lightText;
-		&:hover {
+		&:hover,
+		&:active,
+		&:focus {
 			background-color: $whiteBackground;
 			color: $calloutText;
+			border: 2px solid $lightText;
 		}
   }
 }

@@ -3,6 +3,16 @@
 
 
 /* ==========================================================================
+
+KEEPING TRACK OF Z-INDEXES
+
+nav: 100
+
+========================================================================== */
+
+
+
+/* ==========================================================================
 FIXES
 ========================================================================== */
 
@@ -66,7 +76,9 @@ ul {
 a {
   color: $calloutText;
   transition: all .3s ease-in-out;
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     text-decoration: none;
     color: darken($calloutText, 10%);
   }
@@ -82,7 +94,6 @@ Header
 ========================================================================== */
 .page-header {
   height: 100%;
-  padding: 1rem 5rem;
   h1 {
     color: $calloutText;
     font-family: $pizzazFont;
@@ -95,6 +106,22 @@ Header
     font-weight: normal;
     font-size: 1rem;
   }
+  .v-aligned-text {
+    padding: 1rem 5rem;
+  }
+}
+
+/* ==========================================================================
+Nav
+========================================================================== */
+nav {
+  z-index: 100;
+  transition: all .3s ease-in-out;
+  a {
+    @extend %smallCaps;
+    padding: 1.39rem 5vw;
+    display: block;
+  }
   ul {
     text-align: center;
   }
@@ -103,16 +130,11 @@ Header
   }
 }
 
-/* ==========================================================================
-Nav
-========================================================================== */
-.page-header nav {
-  a {
-    @extend %smallCaps;
-    padding: 1rem 5vw;
-  }
-
-
+.stick-sticky-stuck {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
 }
 
 
@@ -123,6 +145,7 @@ Base Styles
 img {
   max-width: 100%;
 }
+
 
 /* ==========================================================================
 Section
@@ -142,7 +165,7 @@ section {
   h1 {
     @extend %smallCaps;
     color: $calloutText;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     font-size: 1rem;
   }
 }
@@ -169,16 +192,25 @@ Build
 .build .row:not(:first-of-type) {
   display: flex;
   overflow: hidden;
+  flex-wrap: wrap;
 }
 
 
 .work-item {
-  flex: 1;
-  padding: 0 0 5rem;
-  margin: 0 4rem 1.2rem;
+  width: (100% / 3);
+  padding: 0 15px 5rem;
+  margin: 0 0 4rem;
   position: relative;
   h3 {
     @extend %smallCaps;
+    font-size: 1rem;
+    margin-bottom: .3rem;
+  }
+  h4 {
+    font-weight: normal;
+    font-size: 1.05rem;
+    font-style: italic;
+    margin-bottom: .8rem;
   }
   img {
     width: 100%;
@@ -187,21 +219,21 @@ Build
 
   .btn {
     margin-top: 0;
-    width: 100%;
+    width: calc(100% - 30px);
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 15px;
+    right: 15px;
   }
   p {
     text-align: justify;
-    margin: 0 auto 1rem;
+    margin: 0 auto .6rem;
+  }
+  &:nth-of-type(n+4) {
+    margin-bottom: 0;
   }
 }
 
-#build > .row:nth-of-type(2) .work-item{
-  margin-bottom: 4rem;
-}
 
 /* ==========================================================================
 Teach
@@ -211,41 +243,31 @@ Teach
 }
 
 blockquote {
-  margin: 0;
+  margin: 112px 0 0;
   padding: 0 1rem;
   text-align: justify;
+  position: relative;
   footer {
     @extend %smallCaps;
-
+  }
+  &:before {
+    content: "\201C";
+    font-size: 100px;
+    position: absolute;
+    top: -130px;
+    font-family: lust;
+    background-color: #FFF;
+    color: #DBBE9C;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    line-height: 160px;
+    text-align: center;
+    display: block;
   }
 }
-
-
-/* ==========================================================================
-Closing Section
-========================================================================== */
-.closing-section {
-  @extend %superLightSection;
-  img {
-    width: 15%;
-    margin-bottom: 1rem;
-  }
-  // h2 {
-  //   font-family: $pizzazFont;
-  //   font-weight: normal;
-  //   font-size: 5vw;
-  //   width: 40%;
-  //   line-height: 1.2;
-  //   margin: 0 auto 2rem;
-  // }
-  a {
-    @extend %darkLink;
-    font-size: 1.6rem;
-    padding: 0 .4rem;
-  }
-}
-
-
 
 
 /* ==========================================================================
@@ -272,15 +294,17 @@ textarea {
 }
 
 button,
-.btn {
+.btn,
+.btn:focus,
+.btn:active {
   @extend %smallCaps;
   @extend %clickableContrastSection;
   border: none;
   outline: none;
-  padding: 1.473rem 3rem;
+  padding: 1.2rem 3rem;
   transition: all .3s ease-in-out;
   display: inline-block;
-  margin-top: 3.5rem;
+  margin-top: 5rem;
   i {
     display: inline-block;
     padding-left: 7px;
@@ -301,6 +325,115 @@ body > footer {
   @extend %contrastSection;
   padding: .8rem 2rem;
   p {
+    @extend %smallCaps;
     margin: 0;
   }
+  p:not(.footer-links) {
+    line-height: 3;
+  }
+  .footer-links {
+    text-align: right;
+  }
+  a {
+    @extend %whiteLink;
+    margin-left: .2rem;
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .row {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  input:last-of-type {
+    margin-bottom: 1.8rem;
+  }
+
+  blockquote {
+    margin: 0 0 3rem;
+  }
+
+  blockquote:last-of-type  {
+    margin-bottom: 0;
+  }
+
+  blockquote:first-of-type {
+    margin-top: 11rem;
+  }
+
+  blockquote:nth-of-type(n+2) {
+    &:before {
+      display: none;
+    }
+  }
+
+  .work-item {
+    width: 50%;
+    &:nth-of-type(-n+4) {
+      margin: 0 0 4rem;
+    }
+  }
+
+
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  .page-header .v-aligned-text {
+    padding: 1rem 15px;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    font-size: 12vw;
+  }
+
+  section {
+    padding: 5rem 1rem;
+  }
+
+  body > footer p,
+  body > footer .footer-links {
+    text-align: center;
+  }
+
+  .about .col-sm-6:first-of-type li {
+    border-bottom: none;
+  }
+
+  section header h2 {
+    font-size: 2rem;
+  }
+
+  button,
+  .btn {
+    padding: 1.2rem 0;
+    width: 100%;
+  }
+
+  input {
+    margin-bottom: 1.2rem !important;
+  }
+
+  form button {
+    margin-top: 3rem;
+  }
+
+}
+
+
+@media only screen and (max-width: 621px) {
+  .work-item {
+    width: 100%;
+    &:nth-of-type(-n+5) {
+      margin: 0 0 3rem;
+    }
+  }
+
+
 }
