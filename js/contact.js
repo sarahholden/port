@@ -6,7 +6,6 @@ $(function(){
         formSubmitButton = form.find('button[type="submit"]'),
         errorNotice = $('#errors'),
         successNotice = $('#success'),
-        loading = $('#loading'),
         errorMessages = {
             required: ' is a required field',
             email: 'You have not entered a valid email address'
@@ -34,7 +33,7 @@ $(function(){
                 if(this.validity.valueMissing){
                     errors.push(nameUC + errorMessages.required);    
                 }
-            
+
                 //if this is an email input and it is not valid
                 else if(this.validity.typeMismatch && type == 'email'){
                     errors.push(errorMessages.email);
