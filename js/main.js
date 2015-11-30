@@ -12,12 +12,13 @@ $( function() {
   //   var item = $($(this).attr("href"));
   //   if (item.length) { return item; }
   // });
+  var scrollPos = $(window).scrollTop();
 
-  sticky();
+  sticky(scrollPos);
 
   $(window).on('scroll', function () {
 
-  	var scrollPos = $(this).scrollTop();
+  	scrollPos = $(this).scrollTop();
 
   	sticky(scrollPos);
   	// highlightMenuItem(scrollPos);
@@ -26,20 +27,27 @@ $( function() {
 
   function sticky (scrollPos) {
     if (scrollPos >= (aboutOffset - $navHeight)) {
-      $nav.addClass('stick-sticky-stuck');
+      $nav.attr('class', 'stick-sticky-stuck');
+    } else if (scrollPos >= ($navHeight + 50)) {
+      $nav.attr('class', 'almost-stuck');
     } else {
-      $nav.removeClass('stick-sticky-stuck');
+      $nav.attr('class', '');
     }
   }
 
   // Resize window
   $(window).on('resize', function () {
   	aboutOffset = $aboutSection.offset().top;
-  	sticky();
+  	sticky(scrollPos);
+  });
+
+  $('#menu-toggle').on('click', function (e) {
+    e.preventDefault();
+    $('nav').toggleClass('open');
   });
 
   // Smooth scroll
-	$('nav a').on('click', function(e) {
+	$('nav li a').on('click', function(e) {
 	  e.preventDefault();
 
 	  var thisTarget = $(this).attr('href'),
@@ -49,6 +57,8 @@ $( function() {
 	    scrollTop: targetOffset - 60
 	  }, 400);
 	});
+
+
 
 
   // function highlightMenuItem (scrollPos) {

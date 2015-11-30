@@ -1,0 +1,173 @@
+@import 'fonts.scss';
+@import 'variables.scss';
+
+
+/* ==========================================================================
+
+KEEPING TRACK OF Z-INDEXES
+
+nav: 100
+.menu-icon: 105
+
+========================================================================== */
+
+
+
+/* ==========================================================================
+FIXES
+========================================================================== */
+
+/* Prevent FOUC for Typekit fonts */
+.wf-loading {
+  font-family: "droid-sans";
+  visibility: hidden;
+}
+.wf-active {
+  visibility: visible;
+}
+
+/* Clearfix */
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.v-aligned-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-70%);
+}
+
+
+
+/* ==========================================================================
+Base Styles
+========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 18px;
+}
+
+body {
+  height: 100%;
+  color: $darkText;
+  font-family: $paragraphFont;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $calloutText;
+  transition: all .3s ease-in-out;
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: darken($calloutText, 10%);
+  }
+}
+
+h1, h2, h3, h4 {
+  margin-top: 0;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+
+
+
+
+/* ==========================================================================
+Footer
+========================================================================== */
+body > footer {
+  @extend %contrastSection;
+  padding: .8rem 2rem;
+  p {
+    @extend %smallCaps;
+    margin: 0;
+  }
+  p:not(.footer-links) {
+    line-height: 3;
+  }
+  .footer-links {
+    text-align: right;
+  }
+  a {
+    @extend %whiteLink;
+    margin-left: .2rem;
+    font-size: 1.6rem;
+  }
+}
+
+/* ==========================================================================
+Buttons
+========================================================================== */
+button,
+.btn,
+.btn:focus,
+.btn:active {
+  @extend %smallCaps;
+  @extend %clickableContrastSection;
+  border: none;
+  outline: none;
+  padding: 1.2rem 3rem;
+  transition: all .3s ease-in-out;
+  display: inline-block;
+  i {
+    display: inline-block;
+    padding-left: 7px;
+    font-size: .6rem;
+    top: -.05rem;
+    position: relative;
+  }
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+
+/* ==========================================================================
+MEDIA QUERIES
+========================================================================== */
+
+@media only screen and (min-width: 1400px) {
+  .row {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+
+  body > footer p,
+  body > footer .footer-links {
+    text-align: center;
+  }
+
+}
+
+
+@import 'print.scss';

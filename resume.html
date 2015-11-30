@@ -3,30 +3,137 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sarah Holden | Web Developer</title>
+  <title>Sarah Holden | Resume</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
+  <link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
 
   <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <script src="https://use.typekit.net/fee8kly.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/resume.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
 </head>
 <body>
 
-  <a href="index.html">Home</a>
+  
+  <nav>
+    <div class="row">
+      <button type="button" class="btn">Print <i class="fa fa-print"></i></button>
+      <button type="button" class="btn">Download <i class="fa fa-download"></i></button>
+    </div>
 
+  </nav>
+
+  <div class="row">
+    <div class="col-xs-4 sidebar">
+      <header class="page-header">
+        <h1><a href="index.html">Sarah Holden</a></h1>
+        <h2>Web Developer</h2>
+        <p>719.244.0353</p>
+        <p>sarahbethholden@gmail.com</p>
+        <p>www.saraheholden.com</p>
+      </header>
+
+      <section>
+        <h1>About</h1>
+        <p>Highly competent Front-End Developer specializing in Backbone, Angular, JavaScript, CSS3, teaching, and coaching. Possesses excellent written and verbal communication skills. Self-starter and quick learner who always exceeds expectations.</p>
+      </section>
+
+      <section>
+        <h1>Education</h1>
+        <h2>Bachelor of Arts in Linguistics</h2>
+        <h3>Moody College</h3>
+      </section>
+
+    </div>
+    <div class="col-xs-8">
+      <section>
+        <h1>Skills</h1>
+        <div class="col-sm-6">
+          <ul>
+            <li>React, Angular, Backbone</li>
+            <li>Gulp, Grunt, Bower, Yeoman</li>
+            <li>Mocha</li>
+            <li>Git, Github</li>
+            <li>Foundation, Bootstrap, Susy</li>
+          </ul>
+        </div>
+        <div class="col-sm-6">
+          <ul>
+            <li>Jade, Haml</li>
+            <li>SCSS</li>
+            <li>CSS3</li>
+            <li>Illustrator/Photoshop/InDesign</li>
+            <li>Teaching/Coaching</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="row">
+          <header class="col-xs-12">
+            <h1>Experience</h1>
+          </header>
+          
+          <article class="col-xs-4">
+            <header>
+              <h1>General Assembly</h1>
+              <h2>Instructor</h2>
+              <h3>2015-Present</h3>
+            </header>
+            <ul>
+              <li>Head instructor for classes and workshops at General Assembly in Chicago including Front End Web Development, Ruby on Rails workshops, Web Development Let’s Break it Down and Intro to JavaScript.</li>
+              <li>Guest lecturer for Web Development Immersive program</li>
+              <li>Served as an instructional coach, meeting with new instructors, observing classes, and drafting instructional best practices for the Chicago branch.</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, molestias. Id in sed ipsum sunt perspiciatis provident odit recusandae, error laudantium.</li>
+            </ul>
+          </article>
+          <article class="col-xs-4">
+            <header>
+              <h1>Freelance Developer</h1>
+              <h2></h2>
+              <h3>2015 - Present</h3>
+            </header>
+            <ul>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse omnis ad, ratione necessitatibus tempora soluta iusto quis sit fugit eum quisquam, deleniti.</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse omnis ad, ratione necessitatibus tempora soluta iusto quis sit fugit eum quisquam, deleniti.</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam reiciendis id a excepturi quos maxime sed dolorem quibusdam suscipit minus ab laboriosam et exercitationem, rerum quasi porro odio deserunt sequi!</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </li>
+            </ul>
+          </article>
+          <article class="col-xs-4">
+            <header>
+              <h1>KinHR</h1>
+              <h2>Lead Front-End Developer</h2>
+              <h3>2013-2015</h3>
+            </header>
+            <ul>
+              <li>Lead front-end developer, working within a .NET environment using Backbone.js, Require.js, Javascript, jQuery, HTML5 and SCSS.</li>
+              <li>Developed and maintained modular CSS leveraging Sass/Compass</li>
+              <li>Developed a Sass style guide to promote long-term maintainability of clean, modular code (http://goo.gl/aSXM17)</li>
+              <li>Built alternate landing pages for the kinhr.com marketing site using WordPress and conducted A/B tests on variations of those pages. (http://kinhr.com/vacation-tracking-software/)</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+
+<!-- 
   <footer>
     <p>&copy; 2015 Sarah Holden.</p>
-  </footer>
+  </footer> -->
 
 
 
@@ -36,8 +143,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
-  <script src="js/slider.js"></script>
-  <script src="js/main.js"></script>
+  <!-- <script src="js/main.js"></script> -->
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <!--   <script>

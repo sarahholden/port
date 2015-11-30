@@ -1,92 +1,4 @@
-@import 'fonts.scss';
-@import 'variables.scss';
-
-
-/* ==========================================================================
-
-KEEPING TRACK OF Z-INDEXES
-
-nav: 100
-
-========================================================================== */
-
-
-
-/* ==========================================================================
-FIXES
-========================================================================== */
-
-/* Prevent FOUC for Typekit fonts */
-.wf-loading {
-  font-family: "droid-sans";
-  visibility: hidden;
-}
-.wf-active {
-  visibility: visible;
-}
-
-/* Clearfix */
-.clearfix:before,
-.clearfix:after {
-  content: " "; /* 1 */
-  display: table; /* 2 */
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-.v-aligned-text {
-  position: relative;
-  top: 50%;
-  transform: translateY(-70%);
-}
-
-
-
-/* ==========================================================================
-Base Styles
-========================================================================== */
-* {
-  box-sizing: border-box;
-}
-
-html {
-  height: 100%;
-  font-size: 18px;
-}
-
-body {
-  height: 100%;
-  color: $darkText;
-  font-family: $paragraphFont;
-  font-size: 1rem;
-  -webkit-font-smoothing: antialiased;
-}
-
-li {
-  list-style: none;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: $calloutText;
-  transition: all .3s ease-in-out;
-  &:hover,
-  &:focus,
-  &:active {
-    text-decoration: none;
-    color: darken($calloutText, 10%);
-  }
-}
-
-h1, h2, h3, h4 {
-  margin-top: 0;
-}
+@import 'style.scss';
 
 
 /* ==========================================================================
@@ -117,6 +29,7 @@ Nav
 nav {
   z-index: 100;
   transition: all .3s ease-in-out;
+  width: 100%;
   a {
     @extend %smallCaps;
     padding: 1.39rem 5vw;
@@ -133,18 +46,54 @@ nav {
 .stick-sticky-stuck {
   position: fixed;
   top: 0;
-  width: 100%;
   background-color: white;
+  opacity: 1;
+}
+
+.almost-stuck {
+  opacity: 0;
+}
+
+.menu-icon {
+  display: none;
+  span {
+    transition: all .3s ease-in-out;
+    background-color: $calloutText;
+    border-radius: 3px;
+    height: 4px;
+    width: 30px;
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+.open {
+  .menu-icon {
+    position: fixed;
+    span {
+      width: 31px;
+      transform-origin: 0;
+      margin-bottom: 7px;
+    }
+    span:first-of-type {
+      transform: rotate(45deg);
+    }
+    span:nth-of-type(2){
+      opacity: 0;
+    }
+    span:last-of-type {
+      transform: rotate(-45deg);
+      
+    }
+  }
+  ul {
+    transform: translateX(0);
+    background-color: $darkBackground;
+    color: $lightText;
+  }
 }
 
 
-
-/* ==========================================================================
-Base Styles
-========================================================================== */
-img {
-  max-width: 100%;
-}
 
 
 /* ==========================================================================
@@ -160,7 +109,6 @@ section {
     margin: 0 auto;
     line-height: 1.2;
     margin-bottom: 2rem;
-
   }
   h1 {
     @extend %smallCaps;
@@ -183,6 +131,37 @@ About
       border-bottom: 2px solid $darkText;
     }
   }
+}
+
+
+/* ==========================================================================
+Forms
+========================================================================== */
+input,
+textarea {
+  @extend %smallCaps;
+  display: block;
+  width: 100%;
+  border: $darkBorder;
+  padding: 1.5rem 2rem;
+  &:focus {
+    outline: none;
+  }
+}
+
+input:not(:last-of-type) {
+  margin-bottom: 1.8rem;
+}
+
+textarea {
+  height: 293px;
+}
+
+button,
+.btn,
+.btn:focus,
+.btn:active {
+  margin-top: 5rem;
 }
 
 
@@ -317,36 +296,48 @@ button,
   }
 }
 
+/* ==========================================================================
+Error and Success
+========================================================================== */
+.message {
+  display: none;
+}
+
+.error {
+  padding-left: 20px;
+  background-color: #fc5846;
+}
+
+.error li:before {
+  content: '- ';
+}
+
+.error li:first-child:before {
+  content: '';
+}
+
+.error li:first-child {
+  margin-left: 0;
+  content: '';
+}
+
+.error li {
+  margin-left: 40px;
+}
+ 
+.success {
+  background-color: #1bb580;
+}
+ 
+.error.visible, .success.visible {
+  display: block;    
+}
+
+
 
 /* ==========================================================================
-Footer
+Media Queries
 ========================================================================== */
-body > footer {
-  @extend %contrastSection;
-  padding: .8rem 2rem;
-  p {
-    @extend %smallCaps;
-    margin: 0;
-  }
-  p:not(.footer-links) {
-    line-height: 3;
-  }
-  .footer-links {
-    text-align: right;
-  }
-  a {
-    @extend %whiteLink;
-    margin-left: .2rem;
-    font-size: 1.6rem;
-  }
-}
-
-@media only screen and (min-width: 1400px) {
-  .row {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-}
 
 @media only screen and (max-width: 991px) {
   input:last-of-type {
@@ -384,6 +375,7 @@ body > footer {
 
 
 @media only screen and (max-width: 768px) {
+
   .page-header .v-aligned-text {
     padding: 1rem 15px;
     text-align: center;
@@ -395,11 +387,6 @@ body > footer {
 
   section {
     padding: 5rem 1rem;
-  }
-
-  body > footer p,
-  body > footer .footer-links {
-    text-align: center;
   }
 
   .about .col-sm-6:first-of-type li {
@@ -424,6 +411,36 @@ body > footer {
     margin-top: 3rem;
   }
 
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 105;
+    font-size: 1.8rem;
+  }
+
+  nav {
+    height: $navHeight;
+    ul {
+      transition: all .3s ease-in-out;
+      transform: translateX(-100%);
+      position: fixed;
+      height: 100%;
+      width: $sidebarWidth;
+      z-index: 100;
+      text-align: left;
+      padding-top: 4rem;
+    }
+    li {
+      display: block;
+    }
+  }
+
+  .nav-wrapper {
+    height: $navHeight;
+  }
+
 }
 
 
@@ -437,3 +454,4 @@ body > footer {
 
 
 }
+

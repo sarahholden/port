@@ -56,6 +56,19 @@ $darkBorder: 2px solid $darkText;
   }
 }
 
+%calloutBtn {
+	color: $calloutText;
+	background-color: transparent;
+	border: 2px solid $calloutText;
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: $whiteBackground;
+		color: $calloutText;
+		border: 2px solid $calloutText;
+	}
+}
+
 %contrastSection {
 	color: $lightText;
 	background-color: $darkBackground;
@@ -93,3 +106,5 @@ $paragraphFont: "futura-pt",sans-serif;
 /* ==========================================================================
   Spacing
 ============================================================================= */
+$sidebarWidth: 250px;
+$navHeight: 72px;

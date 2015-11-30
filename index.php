@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -17,7 +19,7 @@
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
 </head>
@@ -26,12 +28,17 @@
   <header class="page-header">
     <div class="nav-wrapper">
       <nav>
+        <a href="#" id="menu-toggle" class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#build">Build</a></li>
           <li><a href="#teach">Teach</a></li>
           <li><a href="#contact">Contact</a></li>
-          
+          <!-- <li><a href="img/sarah_holden_resume_2015.pdf" target="_blank">Resume</a></li> -->
         </ul>
       </nav>
     </div>
@@ -49,7 +56,7 @@
       </header>
       <div class="col-sm-6">
         <ul>
-          <li>React, Angular, Backbone</li>
+          <li>Backbone, Angular, React</li>
           <li>Gulp, Grunt, Bower, Yeoman</li>
           <li>Mocha</li>
           <li>Git, Github</li>
@@ -66,7 +73,7 @@
         </ul>
       </div>
       <div class="col-md-12">
-        <a href="resume.html" class="btn">View Resume</a>
+        <a href="img/sarah_holden_resume_2015.pdf" target="_blank" class="btn">View Resume</a>
       </div>
     </div>
   </section>
@@ -162,35 +169,48 @@
         <h2>Let&rsquo;s work together.<br> I&rsquo;m always looking to take on new and interesting projects.</h2>
         <h1>Contact</h1>
       </header>
-      <form action="/contact" method="post" id="contactForm">
+
+      <?php
+      //init variables
+      $cf = array();
+      $sr = false;
+       
+      if(isset($_SESSION['cf_returndata'])){
+          $cf = $_SESSION['cf_returndata'];
+          $sr = true;
+      }
+      ?>
+      <ul id="errors" class="error message <?php echo ($sr && !$cf['form_ok']) ? 'visible' : ''; ?>">
+          <li id="info">There were some problems with your form submission:</li>
+          <?php 
+          if(isset($cf['errors']) && count($cf['errors']) > 0) :
+              foreach($cf['errors'] as $error) :
+          ?>
+          <li><?php echo $error ?></li>
+          <?php
+              endforeach;
+          endif;
+          ?>
+      </ul>
+      <p id="success" class="success message <?php echo ($sr && $cf['form_ok']) ? 'visible' : ''; ?>">Thanks for your message! I will get back to you as soon as possible.</p>
+
+
+      <form action="process.php" method="post" id="contactForm">
         <div class="col-md-6">
-          <input type="text" placeholder="Your Name" name="name" id="name">
-          <input type="text" placeholder="Email Address" name="email" id="email">
+          <input type="text" placeholder="Your Name" name="name" id="name" value="<?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['name'] : '' ?>" required>
+          <input type="email" placeholder="Email Address" name="email" id="email" required>
           <input type="text" placeholder="Subject" name="subject" id="subject">
         </div>
         <div class="col-md-6">
-          <textarea name="message" id="" placeholder="Message"></textarea>
+          <textarea name="message" id="" placeholder="Message" required></textarea>
         </div>
         <div class="col-md-12">
           <button type="submit">Send Message <i class="fa fa-paper-plane"></i></button>
         </div>
+        <?php unset($_SESSION['cf_returndata']); ?>
       </form>
     </div>
   </section>
-
-<!--   <section class="closing-section">
-    <div class="row">
-      <div class="col-md-12">
-        <header>
-          <h2>Thanks for dropping by.</h2>
-        </header>
-        
-        <img src="img/profile.jpg" alt="Photo of Sarah Holden">
-
-
-      </div>
-    </div>
-  </section> -->
 
   <footer>
     <div class="row">
@@ -218,6 +238,7 @@
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <!--   <script>
