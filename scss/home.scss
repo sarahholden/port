@@ -299,38 +299,33 @@ button,
 /* ==========================================================================
 Error and Success
 ========================================================================== */
-.message {
-  display: none;
-}
 
 .error {
-  padding-left: 20px;
-  background-color: #fc5846;
+  border-color: #fc5846;
+  margin-bottom: 3rem !important;
 }
 
-.error li:before {
-  content: '- ';
-}
-
-.error li:first-child:before {
-  content: '';
-}
-
-.error li:first-child {
-  margin-left: 0;
-  content: '';
-}
-
-.error li {
-  margin-left: 40px;
+.error-message {
+  color: #fc5846;
+  position: absolute;
+  bottom: -40px;
+  font-size: .8rem;
 }
  
 .success {
   background-color: #1bb580;
 }
+
+.message {
+  display: none;
+}
  
 .error.visible, .success.visible {
   display: block;    
+}
+
+.field-wrapper {
+  position: relative;
 }
 
 
@@ -403,8 +398,9 @@ Media Queries
     width: 100%;
   }
 
-  input {
-    margin-bottom: 1.2rem !important;
+  input,
+  input:last-of-type {
+    margin-bottom: 1.2rem;
   }
 
   form button {

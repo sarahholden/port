@@ -12,11 +12,11 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
 
-  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+<!--   <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <script src="https://use.typekit.net/fee8kly.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script> -->
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/home.css">
@@ -180,30 +180,28 @@
           $sr = true;
       }
       ?>
-      <ul id="errors" class="error message <?php echo ($sr && !$cf['form_ok']) ? 'visible' : ''; ?>">
-          <li id="info">There were some problems with your form submission:</li>
-          <?php 
-          if(isset($cf['errors']) && count($cf['errors']) > 0) :
-              foreach($cf['errors'] as $error) :
-          ?>
-          <li><?php echo $error ?></li>
-          <?php
-              endforeach;
-          endif;
-          ?>
-      </ul>
-      <p id="success" class="success message <?php echo ($sr && $cf['form_ok']) ? 'visible' : ''; ?>">Thanks for your message! I will get back to you as soon as possible.</p>
+      <div class="col-md-12">
+        <p id="success" class="success message <?php echo ($sr && $cf['form_ok']) ? 'visible' : ''; ?>">Thanks for your message! I will get back to you as soon as possible.</p>
+      </div>
 
 
       <form action="process.php" method="post" id="contactForm">
         <div class="col-md-6">
-          <input type="text" placeholder="Your Name" name="name" id="name" value="<?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['name'] : '' ?>" required>
-          <input type="email" placeholder="Email Address" name="email" id="email" required>
-          <input type="text" placeholder="Subject" name="subject" id="subject">
+          <div class="field-wrapper">
+            <input type="text" placeholder="Your Name *" name="name" id="name" value="<?php echo ($sr && !$cf['form_ok']) ? $cf['posted_form_data']['name'] : '' ?>" required>
+          </div>
+          <div class="field-wrapper">
+            <input type="email" placeholder="Email Address *" name="email" id="email" required>
+          </div>
+          <div class="field-wrapper">
+            <input type="text" placeholder="Subject" name="subject" id="subject">
+          </div>
         </div>
         <div class="col-md-6">
-          <textarea name="message" id="" placeholder="Message" required></textarea>
-        </div>
+          <div class="field-wrapper">
+            <textarea name="message" id="" placeholder="Message *" required></textarea>
+          </div>
+          </div>
         <div class="col-md-12">
           <button type="submit">Send Message <i class="fa fa-paper-plane"></i></button>
         </div>
@@ -234,7 +232,7 @@
 
 
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
